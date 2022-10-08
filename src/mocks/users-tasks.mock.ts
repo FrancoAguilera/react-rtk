@@ -5,6 +5,11 @@ export const userDataMock = [
     company: "Ebidco",
     dob: "1989-09-02",
     address: "48 Rost Place, Watchtower, Michigan",
+    picture: {
+      large: "https://randomuser.me/api/portraits/men/21.jpg",
+      medium: "https://randomuser.me/api/portraits/med/men/21.jpg",
+      thumbnail: "https://randomuser.me/api/portraits/thumb/men/21.jpg",
+    },
     tasks: [
       {
         id: "633b3ea3237958bff3a8f835",
@@ -41,6 +46,11 @@ export const userDataMock = [
     company: "Artiq",
     dob: "1990-09-07",
     address: "43 Verona Street, Wyano, Palau",
+    picture: {
+      large: "https://randomuser.me/api/portraits/men/46.jpg",
+      medium: "https://randomuser.me/api/portraits/med/men/46.jpg",
+      thumbnail: "https://randomuser.me/api/portraits/thumb/men/46.jpg",
+    },
     tasks: [
       {
         id: "633b3ea319b991e47a51f0a2",
@@ -86,6 +96,11 @@ export const userDataMock = [
     company: "Corpulse",
     dob: "1989-01-20",
     address: "40 Emmons Avenue, Gerton, Nebraska",
+    picture: {
+      large: "https://randomuser.me/api/portraits/women/40.jpg",
+      medium: "https://randomuser.me/api/portraits/med/women/40.jpg",
+      thumbnail: "https://randomuser.me/api/portraits/thumb/women/40.jpg",
+    },
     tasks: [
       {
         id: "633b3ea3b58a0475b5f69452",
@@ -127,6 +142,11 @@ export const userDataMock = [
     company: "Zytrac",
     dob: "1994-12-31",
     address: "78 Leonora Court, Caberfae, Virgin Islands",
+    picture: {
+      large: "https://randomuser.me/api/portraits/men/30.jpg",
+      medium: "https://randomuser.me/api/portraits/med/men/30.jpg",
+      thumbnail: "https://randomuser.me/api/portraits/thumb/men/30.jpg",
+    },
     tasks: [
       {
         id: "633b3ea3adc5cc30c5a0f76d",
