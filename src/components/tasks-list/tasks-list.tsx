@@ -1,14 +1,15 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import type { RootState } from "../../app/store/store";
 import { IUser, ITask } from "../../interfaces";
 
 type ITasksProps = {
   tasks: ITask[];
+  userId?: string;
 };
 
-const Tasks = ({ tasks }: ITasksProps) => (
+const Tasks = ({ tasks, userId }: ITasksProps) => (
   <ul>
     {tasks.map((task) => (
       <li key={task.id} className="shadow hover:shadow-lg">
@@ -24,7 +25,9 @@ const Tasks = ({ tasks }: ITasksProps) => (
         </div>
         <div className="py-4 flex flex-row-reverse">
           <button className="bg-red-500 hover:bg-red-700 text-white font-bold mx-2 py-2 px-4 rounded">Delete</button>
-          <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Edit</button>
+          <Link to={`/task-form/edit/${userId}/${task.id}`}>
+            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Edit</button>
+          </Link>
         </div>
       </li>
     ))}
@@ -46,8 +49,16 @@ export const TaskList = () => {
         <h4 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Name: {user.name}</h4>
         <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">Company: {user.company}</p>
         <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">Roles: {user.roles}</p>
+        <div className="py-4 flex flex-row-reverse">
+          <Link
+            to={`/task-form/new/${user.id}`}
+            className="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-green-700 rounded-lg hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800"
+          >
+            Add Task
+          </Link>
+        </div>
         <p className="mb-2 text-1xl font-bold tracking-tight text-gray-900 dark:text-white">Current tasks: </p>
-        <Tasks tasks={user.tasks} />
+        <Tasks tasks={user.tasks} userId={user.id} />
       </div>
     </div>
   );
