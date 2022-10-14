@@ -11,8 +11,8 @@ export const UsersList = () => {
 
   const usersCards = users.map((user: IUser) => (
     <div key={user.id} className="card card-item">
-      <div className="profile-container">
-        <img src={user.profile_pic} alt="Profile pic" className="profile-pic" />
+      <div className="profile-task-container">
+        <img src={user.profile_pic} alt="Profile pic" className="profile-picture" />
       </div>
       <div className="card-body">
         <h5 className="card-title">{`${user.first_name} ${user.last_name}`}</h5>

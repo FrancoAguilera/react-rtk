@@ -1,0 +1,32 @@
+.profile-container {
+  display: grid;
+  grid-template-columns: 100px 2fr;
+  grid-gap: 1em;
+  justify-items: start;
+  margin-bottom: 1rem;
+}
+
+.profile-pic {
+  width: 100px;
+  border-radius: 50%;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border: 1px solid #333;
+}
+
+.profile-data {
+  padding-top: 1.5rem;
+}
+
+.profile-name,
+.profile-email {
+  margin: 0;
+  padding: 0;
+}
+
+.profile-name {
+  font-weight: bold;
+}
+
+.profile-email {
+  font-style: italic;
+}
