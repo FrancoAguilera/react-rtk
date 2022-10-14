@@ -21,10 +21,15 @@ export const TaskList = () => {
 
   const userProfile = (
     <>
-      <img src={user?.profile_pic} className="profile-pic" alt="Profile user pic" />
+      <img src={user.profile_pic} className="profile-pic" alt="Profile user pic" />
       <div className="profile-data">
         <p className="profile-name">Name: {`${user.first_name} ${user.last_name}`}</p>
         <p className="profile-email">Email: {user.email}</p>
+      </div>
+      <div className="profile-new-task">
+        <Link to={`/new-task/${user.id}`}>
+          <button className="btn btn-success">Create Task</button>
+        </Link>
       </div>
     </>
   );

@@ -1,6 +1,6 @@
 .profile-container {
   display: grid;
-  grid-template-columns: 100px 2fr;
+  grid-template-columns: 100px 1fr 5fr;
   grid-gap: 1em;
   justify-items: start;
   margin-bottom: 1rem;
@@ -29,4 +29,9 @@
 
 .profile-email {
   font-style: italic;
+}
+
+.profile-new-task {
+  display: flex;
+  align-self: flex-end;
 }

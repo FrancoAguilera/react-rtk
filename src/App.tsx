@@ -14,6 +14,7 @@ function App() {
         <Route path="/" element={<UsersList />} />
         <Route path="/user-tasks/:userId" element={<TaskList />} />
         <Route path="/task-form/:taskId" element={<TaskForm />} />
+        <Route path="/new-task/:userId" element={<TaskForm />} />
         {/*
         <Route path="/task-form/edit/:userId/:taskId" element={<TaskForm />} />
         */}

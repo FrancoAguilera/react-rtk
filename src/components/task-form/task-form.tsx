@@ -2,9 +2,8 @@ import React, { useEffect, useState } from "react";
 import type { RootState } from "../../app/store/store";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams, useNavigate } from "react-router";
-// import { v4 as uuidv4 } from "uuid";
 import { ITask } from "../../interfaces";
-import { editTask } from "../../features/tasks/tasksSlice";
+import { createTask, editTask } from "../../features/tasks/tasksSlice";
 
 import "./index.css";
 
@@ -12,22 +11,24 @@ export const TaskForm = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const tasks = useSelector((state: RootState) => state.tasks);
-
-  const { taskId } = useParams();
+  const { taskId, userId } = useParams();
   const [task, setTask] = useState({
-    id: 0,
+    id: -1,
     title: "",
     description: "",
-    user_id: 0,
+    user_id: -1,
   });
 
   useEffect(() => {
-    if (!taskId) return;
-
-    const currentTask: ITask = tasks.find((task) => task.id.toString() === taskId)!;
+    let currentTask: ITask;
+    if (taskId) {
+      currentTask = tasks.find((task) => task.id.toString() === taskId)!;
+    } else {
+      currentTask = { title: "", description: "", id: Date.now(), user_id: parseInt(userId!) };
+    }
 
     setTask(currentTask);
-  }, [taskId, tasks]);
+  }, [taskId, userId, tasks]);
 
   const handleOnChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setTask({
@@ -39,10 +40,10 @@ export const TaskForm = () => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    if (taskId) {
-      dispatch(editTask(task));
-      navigate(`/user-tasks/${task.user_id}`);
-    }
+    const actionType = taskId ? editTask : createTask;
+
+    dispatch(actionType(task));
+    navigate(`/user-tasks/${task.user_id}`);
   };
 
   return (
@@ -68,7 +69,7 @@ export const TaskForm = () => {
             />
           </div>
           <button type="submit" className="btn btn-success">
-            Save Task
+            Save Changes
           </button>
         </form>
       </div>
