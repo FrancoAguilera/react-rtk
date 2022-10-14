@@ -3,7 +3,6 @@ import type { RootState } from "../../app/store/store";
 import { useSelector, useDispatch } from "react-redux";
 import { Link, useParams } from "react-router-dom";
 import { ITask, IUser } from "../../interfaces";
-
 import { deleteTask } from "../../features/tasks/tasksSlice";
 
 import "./index.css";
@@ -41,7 +40,7 @@ export const TaskList = () => {
       </div>
 
       <div className="d-grid gap-2 d-md-flex justify-content-md-end">
-        <Link to={"/"}>
+        <Link to={`/task-form/${userTask.id}`}>
           <button className="btn btn-outline-primary">Edit</button>
         </Link>
         <button

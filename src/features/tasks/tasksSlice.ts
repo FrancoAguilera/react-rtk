@@ -12,7 +12,14 @@ const tasksSlice = createSlice({
       console.log(action.payload);
     },
     editTask: (state, action) => {
-      console.log(action.payload);
+      const { id, title, description, user_id } = action.payload;
+      const taskIndex = state.findIndex((task) => task.id === id);
+      state[taskIndex] = {
+        id,
+        title,
+        description,
+        user_id,
+      };
     },
     deleteTask: (state, action) => state.filter((task) => task.id !== action.payload),
   },
