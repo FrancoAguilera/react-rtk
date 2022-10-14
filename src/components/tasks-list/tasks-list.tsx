@@ -9,40 +9,12 @@ type ITasksProps = {
   userId?: string;
 };
 
-const Tasks = ({ tasks, userId }: ITasksProps) => (
-  <ul>
-    {tasks.map((task) => (
-      <li key={task.id} className="shadow hover:shadow-lg">
-        <div>
-          <p>
-            <b>Title: </b>
-            {task.title}
-          </p>
-          <p className="py-2">
-            <b>Description: </b> <br />
-            {task.description}
-          </p>
-        </div>
-        <div className="py-4 flex flex-row-reverse">
-          <button className="bg-red-500 hover:bg-red-700 text-white font-bold mx-2 py-2 px-4 rounded">Delete</button>
-          <Link to={`/task-form/edit/${userId}/${task.id}`}>
-            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Edit</button>
-          </Link>
-        </div>
-      </li>
-    ))}
-  </ul>
-);
+const Tasks = ({ tasks, userId }: ITasksProps) => <ul></ul>;
 
 export const TaskList = () => {
-  let { userId } = useParams();
-
-  const users: Array<IUser> = useSelector((state: RootState) => state.users);
-  const user: IUser = users.find((user) => user.id === userId)!;
-
   return (
     <div className="flex justify-center">
-      <div className="p-6 w-1/3 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+      {/* <div className="p-6 w-1/3 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
         <div className="pb-5 flex items-center justify-center">
           <img className="rounded-full border border-gray-100" src={user.picture.large} alt="" />
         </div>
@@ -59,7 +31,7 @@ export const TaskList = () => {
         </div>
         <p className="mb-2 text-1xl font-bold tracking-tight text-gray-900 dark:text-white">Current tasks: </p>
         <Tasks tasks={user.tasks} userId={user.id} />
-      </div>
+      </div> */}
     </div>
   );
 };

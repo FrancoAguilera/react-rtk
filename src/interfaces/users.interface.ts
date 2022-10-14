@@ -1,18 +1,8 @@
-import { ITask } from "./tasks.interface";
-
-export interface IPictures {
-  large: string;
-  medium: string;
-  thumbnail: string;
-}
-
 export interface IUser {
-  id: string;
-  name: string;
-  company: string;
-  dob: string;
-  address: string;
-  tasks: ITask[];
-  roles: string[];
-  picture: IPictures;
+  id: number;
+  first_name: string;
+  last_name: string;
+  email: string;
+  gender: string;
+  profile_pic: string;
 }
